@@ -24,12 +24,21 @@
         </p>
       </div>
     </header>
+    <!-- 【1】右上 登入 註冊 按鈕 -->
+    <!-- 【1】右上 登入 註冊 按鈕 -->
+    <!-- 【1】右上 登入 註冊 按鈕 -->
+    <!-- 【1】右上 登入 註冊 按鈕 -->
+    <!-- 【1】右上 登入 註冊 按鈕 -->
 
+    <div x-data="{a:true}">
+      <button @click="a = !a">按啊</button>
+      <span x-show="a">10000</span>
+    </div>
     <main class="px-6 todo-app main">
       <header>
         <nav class="navbar">
-          <a class="loginLink" href="#login">登入</a>
-          <a class="signUpLink" href="#sign_up">註冊</a>
+          <a @click="P1" class="loginLink" href="#login">登入</a>
+          <a @click="P2" class="signUpLink" href="#sign_up">註冊</a>
         </nav>
       </header>
 
@@ -41,19 +50,41 @@
             <div class="field">
               <label>
                 <h3>Email</h3>
+                <!--【 2 】登入 / 信箱 --><!--登入 / 信箱 --><!--登入 / 信箱 --><!--登入 / 信箱 --><!--登入 / 信箱 --><!--登入 / 信箱 -->
                 <input type="email" id="loginEmail" autocomplete="email" spellcheck="false" placeholder="Email 信箱" />
+                <!--【 2 】登入 / 信箱 --><!--登入 / 信箱 --><!--登入 / 信箱 --><!--登入 / 信箱 --><!--登入 / 信箱 -->
               </label>
             </div>
 
             <div class="field">
               <label>
                 <h3>密碼</h3>
-                <input type="password" id="loginPassword" autocomplete="current-password" spellcheck="false" placeholder="密碼，至少需要 6 個字" />
+                <!--【 3 】登入 / 密碼 -->
+                <!--【 3 】登入 / 密碼 -->
+                <!--【 3 】登入 / 密碼 -->
+                <!--【 3 】登入 / 密碼 -->
+                <input
+                  type="password"
+                  id="loginPassword"
+                  autocomplete="current-password"
+                  spellcheck="false"
+                  placeholder="密碼，至少需要 6 個字"
+                />
+                <!--【 3 】登入 / 密碼 -->
+                <!--【 3 】登入 / 密碼 -->
+                <!--【 3 】登入 / 密碼 -->
+                <!--【 3 】登入 / 密碼 -->
               </label>
             </div>
 
             <div class="items-center justify-between block sm:flex field">
+              <!--【 4 】登入 / 大紅按鈕 -->
+              <!--【 4 】登入 / 大紅按鈕 -->
+              <!--【 4 】登入 / 大紅按鈕 -->
               <button>登入</button>
+              <!--【 4 】登入 / 大紅按鈕 -->
+              <!--【 4 】登入 / 大紅按鈕 -->
+              <!--【 4 】登入 / 大紅按鈕 -->
               <div class="text-xl text-gray-600">還沒有帳號嗎？<a href="#" class="text-link signUpLink">註冊</a>一個吧！</div>
             </div>
           </form>
@@ -67,7 +98,9 @@
             <div class="field">
               <label>
                 <h3>Email</h3>
+                <!--【 5 】註冊帳號 / 信箱 -->
                 <input type="email" id="signUpEmail" autocomplete="email" spellcheck="false" placeholder="Email 信箱" />
+                <!--【 5 】註冊帳號 / 信箱 -->
               </label>
             </div>
 
@@ -81,7 +114,13 @@
             <div class="field">
               <label>
                 <h3>密碼</h3>
-                <input type="password" id="signUpPassword" autocomplete="new-password" spellcheck="false" placeholder="密碼，至少需要 6 個字" />
+                <input
+                  type="password"
+                  id="signUpPassword"
+                  autocomplete="new-password"
+                  spellcheck="false"
+                  placeholder="密碼，至少需要 6 個字"
+                />
               </label>
             </div>
 

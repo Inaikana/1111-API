@@ -1,4 +1,5 @@
-import { initPages } from "./pages"
-initPages()
+// import { initPages } from "./pages"
+// initPages()
 
-// 程式碼寫在這裡
+import Alpine from "alpinejs"
+Alpine.start()
