@@ -9,8 +9,7 @@
   <body>
     <div x-data="{dekiru:''}">
       <input x-model="dekiru" type="text" /><br />
-      <button x-bind:disabled="dekiru =='' ">我是按鈕OuO</button>
-      <!-- TODO  5 :42: 01 -->
+      <button x-bind:disabled="dekiru.trim() =='' ">我是按鈕OuO</button>
     </div>
   </body>
 </html>
