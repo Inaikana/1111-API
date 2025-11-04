@@ -7,34 +7,38 @@ function henko() {
     password: "",
 
     OShiTatsukuru: function () {
-      const email = this.email
-      const tinyname = this.tinyname
-      const password = this.password
+      const { email, tinyname, password } = this
       if (email !== "" && tinyname !== "" && password !== "") {
         console.log("打API")
       }
     },
 
-    ikou: function () {
+    ikou() {
       this.mode = "ikou"
     },
-    tsukuru: function () {
+    tsukuru() {
       // 作る
       this.mode = "tsukuru"
     },
-    sagasu: function () {
+    sagasu() {
       this.mode = "sagasu"
     },
-    ikouAru: function () {
+    ikouAru() {
       return this.mode == "ikou" //讓它回傳一個布林值 true或false
     },
-    tsukuruAru: function () {
+    tsukuruAru() {
       return this.mode == "tsukuru"
     },
-    sagasuAru: function () {
+    sagasuAru() {
       return this.mode == "sagasu"
     },
   }
 }
 
 export { henko }
+
+// const {email,tinyname,password} = this;
+// =
+// const email = this.email
+// const tinyname = this.tinyname
+// const password = this.password
