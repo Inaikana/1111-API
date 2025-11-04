@@ -1,5 +1,3 @@
-// import { initPages } from "./pages"
-// initPages()
-
 import Alpine from "alpinejs"
+import { henko } from "./kaku.js"
 Alpine.start()
