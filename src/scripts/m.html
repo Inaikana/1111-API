@@ -8,8 +8,8 @@
   </head>
   <body>
     <div x-data="{dekiru:''}">
-      <input x-model="dekiru" type="text" /><br />
-      <button x-bind:disabled="dekiru.trim() =='' ">我是按鈕OuO</button>
+      <input x-model.trim="dekiru" type="text" /><br />
+      <button x-bind:disabled="dekiru =='' ">我是按鈕OuO</button>
     </div>
   </body>
 </html>
