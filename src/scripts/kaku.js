@@ -2,6 +2,15 @@ function henko() {
   return {
     // 回傳一個物件
     mode: "ikou", // 在物件裡是【 key : value , 】
+    email: "",
+    tinyname: "",
+    password: "",
+
+    OShiTatsukuru: function () {
+      console.log(this.email)
+      console.log(this.tinyname)
+      console.log(this.password)
+    },
 
     ikou: function () {
       this.mode = "ikou"
