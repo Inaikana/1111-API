@@ -1,3 +1,5 @@
+import axios from "axios"
+
 function henko() {
   return {
     // 回傳一個物件
@@ -9,6 +11,14 @@ function henko() {
     OShiTatsukuru: function () {
       const { email, tinyname, password } = this
       if (email !== "" && tinyname !== "" && password !== "") {
+        const userdata = {
+          user: {
+            email: email,
+            nickname: tinyname,
+            password: password,
+          },
+        }
+        // axios.post("https://todoo.5xcamp.us/users",userdata)
         console.log("打API")
       }
     },
