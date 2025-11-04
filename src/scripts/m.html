@@ -7,10 +7,9 @@
     <script src="//unpkg.com/alpinejs" defer></script>
   </head>
   <body>
-    <div x-data="{hanashi:'tereru'}">
-      <input type="text" /><br />
-      <input type="text" /><br />
-      <button disabled>我是按鈕OuO</button>
+    <div x-data="{dekiru:''}">
+      <input x-model="dekiru" type="text" /><br />
+      <button x-bind:disabled="dekiru =='' ">我是按鈕OuO</button>
       <!-- TODO  5 :42: 01 -->
     </div>
   </body>
