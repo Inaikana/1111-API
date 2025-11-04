@@ -7,9 +7,12 @@ function henko() {
     password: "",
 
     OShiTatsukuru: function () {
-      console.log(this.email)
-      console.log(this.tinyname)
-      console.log(this.password)
+      const email = this.email
+      const tinyname = this.tinyname
+      const password = this.password
+      if (email !== "" && tinyname !== "" && password !== "") {
+        console.log("打API")
+      }
     },
 
     ikou: function () {
