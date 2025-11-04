@@ -10,7 +10,7 @@ function henko() {
 
     async OShiTatsukuru() {
       const { email, tinyname, password } = this
-      if (email !== "" && tinyname !== "" && password !== "") {
+      if (email != "" && tinyname != "" && password != "") {
         const userdata = {
           user: {
             email: email,
@@ -19,6 +19,7 @@ function henko() {
           },
         }
         const resp = await axios.post("https://todoo.5xcamp.us/users", userdata)
+        console.log(resp)
       }
     },
 
