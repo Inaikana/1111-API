@@ -30,21 +30,17 @@
     <!-- 【1】右上 登入 註冊 按鈕 -->
     <!-- 【1】右上 登入 註冊 按鈕 -->
 
-    <div x-data="{a:true}">
-      <button @click="a = !a">按啊</button>
-      <span x-show="a">10000</span>
-    </div>
-    <main class="px-6 todo-app main">
+    <main x-data="{mode: 2}" class="px-6 todo-app main">
       <header>
         <nav class="navbar">
-          <a @click="P1" class="loginLink" href="#login">登入</a>
-          <a @click="P2" class="signUpLink" href="#sign_up">註冊</a>
+          <a @click="mode = 1" class="loginLink" href="#login">登入</a>
+          <a @click="mode = 2" class="signUpLink" href="#sign_up">註冊</a>
         </nav>
       </header>
 
       <section id="userSection">
         <!-- Login Section start -->
-        <section id="loginSection">
+        <section x-show="mode == 1" id="loginSection">
           <h1>登入</h1>
           <form id="loginForm">
             <div class="field">
@@ -92,7 +88,7 @@
         <!-- Login Section end -->
 
         <!-- Sign Up Section start -->
-        <section id="signUpSection">
+        <section x-show="mode ==2" id="signUpSection">
           <h1>註冊帳號</h1>
           <form id="signUpForm">
             <div class="field">
@@ -134,7 +130,7 @@
       </section>
 
       <!-- TODO Section start -->
-      <section id="taskSection">
+      <section x-show="mode ==3" id="taskSection">
         <form id="todoForm">
           <input type="text" id="taskInput" autocomplete="off" spellcheck="false" placeholder="做點重要的事吧..." />
           <button id="addTodoBtn">新增</button>
