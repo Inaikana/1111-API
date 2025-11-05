@@ -18,8 +18,12 @@ function henko() {
             password: password,
           },
         }
-        const resp = await axios.post("https://todoo.5xcamp.us/users", userdata)
-        console.log(resp)
+        try {
+          const resp = await axios.post("https://todoo.5xcamp.us/users", userdata)
+          console.log(resp)
+        } catch (err) {
+          console.log(err.response.data.message)
+        }
       }
     },
 
