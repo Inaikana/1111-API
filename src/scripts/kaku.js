@@ -7,19 +7,18 @@ function henko() {
     email: "",
     tinyname: "",
     password: "",
+    IDing: false,
 
     init() {
-      if (IDing()) {
+      const token = localStorage.getItem("ID")
+      if (token) {
+        this.IDing = true
+      }
+      if (this.IDing) {
         this.sagasu()
       } else {
         this.tsukuru()
       }
-    },
-
-    IDing() {
-      // 老師的isLogin() 回傳是否登入的布林值
-      const token = localStorage.getItem("ID")
-      return token != ""
     },
 
     async OshiTaikou() {
