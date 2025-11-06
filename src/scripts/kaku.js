@@ -69,8 +69,11 @@ function henko() {
 
     async OShiTahanasu() {
       //離す
-      const resp = await axios.delete("https://todoo.5xcamp.us/users/sign_out")
-      console.log(resp)
+      const token = localStorage.getItem("ID")
+      if (token) {
+        const resp = await axios.delete("https://todoo.5xcamp.us/users/sign_out")
+        console.log(resp)
+      }
     },
 
     reset() {
