@@ -27,6 +27,7 @@ function henko() {
         }
         try {
           await axios.post("https://todoo.5xcamp.us/users", userdata)
+          this.reset()
           this.ikou()
         } catch (err) {
           alert(err.response.data.message)
@@ -34,22 +35,33 @@ function henko() {
       }
     },
 
+    reset() {
+      this.email = ""
+      this.tinyname = ""
+      this.password = ""
+    },
+
     ikou() {
       this.mode = "ikou"
     },
+
     tsukuru() {
       // 作る
       this.mode = "tsukuru"
     },
+
     sagasu() {
       this.mode = "sagasu"
     },
+
     ikouAru() {
       return this.mode == "ikou" //讓它回傳一個布林值 true或false
     },
+
     tsukuruAru() {
       return this.mode == "tsukuru"
     },
+
     sagasuAru() {
       return this.mode == "sagasu"
     },
