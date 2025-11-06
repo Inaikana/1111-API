@@ -8,7 +8,9 @@ function henko() {
     tinyname: "",
     password: "",
 
-    OshiTaikou() {},
+    OshiTaikou() {
+      console.log(this.email, this.password, "GO!")
+    },
 
     async OShiTatsukuru() {
       const { email, tinyname, password } = this
