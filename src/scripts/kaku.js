@@ -9,8 +9,7 @@ function henko() {
     password: "",
 
     init() {
-      const token = localStorage.getItem("ID")
-      if (token) {
+      if (IDing()) {
         this.sagasu()
       } else {
         this.tsukuru()
@@ -18,6 +17,7 @@ function henko() {
     },
 
     IDing() {
+      // 老師的isLogin() 回傳是否登入的布林值
       const token = localStorage.getItem("ID")
       return token != ""
     },
