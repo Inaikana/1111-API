@@ -8,6 +8,8 @@ function henko() {
     tinyname: "",
     password: "",
 
+    OshiTaikou() {},
+
     async OShiTatsukuru() {
       const { email, tinyname, password } = this
       if (email != "" && tinyname != "" && password != "") {
