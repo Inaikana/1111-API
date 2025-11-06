@@ -17,8 +17,13 @@ function henko() {
             password: password,
           },
         }
-
-        await axios.post("https://todoo.5xcamp.us/users/sign_in", userdata)
+        try {
+          const resp = await axios.post("https://todoo.5xcamp.us/users/sign_in", userdata)
+          const token = resp.headers.authorization
+          localStorage.setItem("ID", token)
+        } catch (err) {
+          console.log(err)
+        }
       }
     },
 
