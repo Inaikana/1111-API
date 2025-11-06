@@ -22,6 +22,7 @@ function henko() {
           const token = resp.headers.authorization
           localStorage.setItem("ID", token)
           this.reset()
+          this.sagasu()
         } catch (err) {
           console.log(err)
         }
