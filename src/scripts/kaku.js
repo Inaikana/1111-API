@@ -8,6 +8,15 @@ function henko() {
     tinyname: "",
     password: "",
 
+    init() {
+      const token = localStorage.getItem("ID")
+      if (token) {
+        this.sagasu()
+      } else {
+        this.tsukuru()
+      }
+    },
+
     async OshiTaikou() {
       const { email, password } = this
       if (email != "" && password != "") {
