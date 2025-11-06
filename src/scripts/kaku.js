@@ -3,7 +3,7 @@ import axios from "axios"
 function henko() {
   return {
     // 回傳一個物件
-    mode: "ikou", // 在物件裡是【 key : value , 】
+    mode: "", // 在物件裡是【 key : value , 】
     email: "",
     tinyname: "",
     password: "",
