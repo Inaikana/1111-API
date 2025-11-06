@@ -71,8 +71,19 @@ function henko() {
       //離す
       const token = localStorage.getItem("ID")
       if (token) {
-        const resp = await axios.delete("https://todoo.5xcamp.us/users/sign_out")
-        console.log(resp)
+        const disappear = {
+          headers: {
+            Authorization: token,
+          },
+        }
+        try {
+          await axios.delete("https://todoo.5xcamp.us/users/sign_out", disappear)
+          localStorage.removeItem("ID")
+          this.IDing = false
+          this.ikou()
+        } catch (err) {
+          console.log(err)
+        }
       }
     },
 
