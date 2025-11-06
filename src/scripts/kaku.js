@@ -17,6 +17,11 @@ function henko() {
       }
     },
 
+    IDing() {
+      const token = localStorage.getItem("ID")
+      return token != ""
+    },
+
     async OshiTaikou() {
       const { email, password } = this
       if (email != "" && password != "") {
