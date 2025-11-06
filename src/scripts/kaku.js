@@ -9,7 +9,10 @@ function henko() {
     password: "",
 
     OshiTaikou() {
-      console.log(this.email, this.password, "GO!")
+      const { email, password } = this
+      if (email != "" && password != "") {
+        console.log("打API!")
+      }
     },
 
     async OShiTatsukuru() {
