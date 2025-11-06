@@ -19,10 +19,10 @@ function henko() {
           },
         }
         try {
-          const resp = await axios.post("https://todoo.5xcamp.us/users", userdata)
-          console.log(resp)
+          await axios.post("https://todoo.5xcamp.us/users", userdata)
+          this.ikou()
         } catch (err) {
-          console.log(err.response.data.message)
+          alert(err.response.data.message)
         }
       }
     },
