@@ -33,9 +33,9 @@
     <main x-data="henko" class="px-6 todo-app main">
       <header>
         <nav class="navbar">
-          <a x-show="!IDing()" @click="ikou" class="loginLink" href="#login">登入</a>
-          <a x-show="!IDing()" @click="tsukuru" class="signUpLink" href="#sign_up">註冊</a>
-          <a x-show="IDing()" @click="" class="signUpLink" href="#">登出</a>
+          <a x-show="!IDing" @click="ikou" class="loginLink" href="#login">登入</a>
+          <a x-show="!IDing" @click="tsukuru" class="signUpLink" href="#sign_up">註冊</a>
+          <a x-show="IDing" @click="" class="signUpLink" href="#">登出</a>
           <!-- 以上為新製作的【登出】超連結 -->
         </nav>
       </header>
