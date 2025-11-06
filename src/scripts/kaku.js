@@ -8,10 +8,17 @@ function henko() {
     tinyname: "",
     password: "",
 
-    OshiTaikou() {
+    async OshiTaikou() {
       const { email, password } = this
       if (email != "" && password != "") {
-        console.log("打API!")
+        const userdata = {
+          user: {
+            email: email,
+            password: password,
+          },
+        }
+
+        await axios.post("https://todoo.5xcamp.us/users/sign_in", userdata)
       }
     },
 
