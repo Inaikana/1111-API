@@ -21,6 +21,7 @@ function henko() {
           const resp = await axios.post("https://todoo.5xcamp.us/users/sign_in", userdata)
           const token = resp.headers.authorization
           localStorage.setItem("ID", token)
+          this.reset()
         } catch (err) {
           console.log(err)
         }
