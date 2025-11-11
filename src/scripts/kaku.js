@@ -8,13 +8,14 @@ function henko() {
     tinyname: "",
     password: "",
     IDing: false,
-    Vinput: "",
+    taskname: "",
+    task: [],
 
     init() {
       const token = localStorage.getItem("ID")
       if (token) {
         this.IDing = true
-        this.dolist()
+        this.showlist()
       }
       if (this.IDing) {
         this.sagasu()
@@ -90,23 +91,38 @@ function henko() {
     },
 
     async dolist() {
-      if (this.Vinput != "") {
+      if (this.taskname != "") {
         const data = {
           todo: {
-            content: this.Vinput,
+            content: this.taskname,
           },
         }
-        const token = localStorage.getItem("ID")
-        const config = {
-          headers: {
-            Authorization: token,
-          },
-        }
-        const resp = await axios.post("https://todoo.5xcamp.us/todos", data, config)
-
-        console.log(resp)
+        await axios.post("https://todoo.5xcamp.us/todos", data, this.setconfig())
+        this.showlist()
       }
-      this.Vinput = ""
+
+      this.taskname = ""
+    },
+
+    async showlist() {
+      const token = localStorage.getItem("ID")
+      const config = {
+        headers: {
+          Authorization: token,
+        },
+      }
+      const resp = await axios.get("https://todoo.5xcamp.us/todos", config)
+      this.task = resp.data.todos
+    },
+
+    setconfig() {
+      const token = localStorage.getItem("ID")
+      const config = {
+        headers: {
+          Authorization: token,
+        },
+      }
+      return config
     },
 
     reset() {

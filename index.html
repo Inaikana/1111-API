@@ -152,7 +152,7 @@
       <!-- TODO Section start -->
       <section x-show="sagasuAru" id="taskSection">
         <form id="todoForm" @submit.prevent="dolist">
-          <input x-model="Vinput" type="text" id="taskInput" autocomplete="off" spellcheck="false" placeholder="做點重要的事吧..." />
+          <input x-model="taskname" type="text" id="taskInput" autocomplete="off" spellcheck="false" placeholder="做點重要的事吧..." />
           <button id="addTodoBtn">新增</button>
         </form>
       </section>
@@ -162,18 +162,20 @@
     <section class="todo-list">
       <ul class="items">
         <!-- item start -->
-        <li>
-          <div class="item-content">
-            <label>
-              <input type="checkbox" />
-              <p class="content">我要學React</p>
-            </label>
-          </div>
-          <div class="item-control">
-            <a href="#" class="edit"><img class="icon" src="src/assets/pen-to-square-solid.svg" /></a>
-            <a href="#" class="delete"><img class="icon" src="src/assets/trash-can-solid.svg" /></a>
-          </div>
-        </li>
+        <template x-for="t in task">
+          <li>
+            <div class="item-content">
+              <label>
+                <input type="checkbox" />
+                <p x-text="t.content" class="content"></p>
+              </label>
+            </div>
+            <div class="item-control">
+              <a href="#" class="edit"><img class="icon" src="src/assets/pen-to-square-solid.svg" /></a>
+              <a href="#" class="delete"><img class="icon" src="src/assets/trash-can-solid.svg" /></a>
+            </div>
+          </li>
+        </template>
         <!-- item end -->
       </ul>
     </section>
