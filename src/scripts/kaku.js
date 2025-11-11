@@ -8,11 +8,13 @@ function henko() {
     tinyname: "",
     password: "",
     IDing: false,
+    Vinput: "",
 
     init() {
       const token = localStorage.getItem("ID")
       if (token) {
         this.IDing = true
+        this.dolist()
       }
       if (this.IDing) {
         this.sagasu()
@@ -85,6 +87,26 @@ function henko() {
           console.log(err)
         }
       }
+    },
+
+    async dolist() {
+      if (this.Vinput != "") {
+        const data = {
+          todo: {
+            content: this.Vinput,
+          },
+        }
+        const token = localStorage.getItem("ID")
+        const config = {
+          headers: {
+            Authorization: token,
+          },
+        }
+        const resp = await axios.post("https://todoo.5xcamp.us/todos", data, config)
+
+        console.log(resp)
+      }
+      this.Vinput = ""
     },
 
     reset() {
