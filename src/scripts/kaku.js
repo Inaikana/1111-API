@@ -97,23 +97,23 @@ function henko() {
             content: this.taskname,
           },
         }
+        // 假發
         const fake = {
           id: crypto.randomUUID(),
           content: this.taskname,
         }
         this.task.unshift(fake)
-        // 假發
 
         // 真發
-        await axios.post("https://todoo.5xcamp.us/todos", data, this.setconfig())
-      }
+        const resp = await axios.post("https://todoo.5xcamp.us/todos", data, this.setconfig())
 
-      //  換回真資料
-      const truedata = resp.data
-      const idx = this.task.findIndex((t) => {
-        return t.id == fake.id
-      })
-      this.task.splice(idx, 1, truedata)
+        //  換回真資料
+        const truedata = resp.data
+        const idx = this.task.findIndex((t) => {
+          return t.id == fake.id
+        })
+        this.task.splice(idx, 1, truedata)
+      }
 
       this.taskname = ""
     },
@@ -129,8 +129,10 @@ function henko() {
       this.task = resp.data.todos
     },
 
-    deleteTask() {
-      console.log(this.$el.dataset.id)
+    async deleteTask() {
+      const tid = this.$el.dataset.id
+      const resp = await axios.delete(`https://todoo.5xcamp.us/todos/${tid}`, this.setconfig())
+      console.log(resp)
     },
 
     setconfig() {
