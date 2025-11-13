@@ -167,7 +167,7 @@
             <div class="item-content">
               <label>
                 <input type="checkbox" @click="toggleTask(t.id)" />
-                <p x-text="t.content" class="content line-through"></p>
+                <p x-text="t.content" class="content" :class="(t.completed_at == null) ? '':'line-through text-[#ffb8f4]' "></p>
               </label>
             </div>
             <div class="item-control">
