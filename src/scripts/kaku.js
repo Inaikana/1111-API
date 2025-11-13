@@ -104,6 +104,8 @@ function henko() {
         }
         this.task.unshift(fake)
 
+        this.taskname = ""
+
         // 真發
         const resp = await axios.post("https://todoo.5xcamp.us/todos", data, this.setconfig())
 
@@ -114,8 +116,6 @@ function henko() {
         })
         this.task.splice(idx, 1, truedata)
       }
-
-      this.taskname = ""
     },
 
     async showlist() {
