@@ -129,10 +129,18 @@ function henko() {
       this.task = resp.data.todos
     },
 
-    async deleteTask() {
+    deleteTask() {
       const tid = this.$el.dataset.id
-      const resp = await axios.delete(`https://todoo.5xcamp.us/todos/${tid}`, this.setconfig())
-      console.log(resp)
+      const idx = this.task.findIndex((e) => {
+        return e.id === tid
+      })
+      if (idx >= 0) {
+        // 演
+        this.task.splice(idx, 1)
+
+        // 真
+        const resp = axios.delete(`https://todoo.5xcamp.us/todos/${tid}`, this.setconfig())
+      }
     },
 
     setconfig() {
