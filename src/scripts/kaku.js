@@ -150,9 +150,9 @@ function henko() {
       })
 
       if (listdata.completed_at != null) {
-        console.log("終わりました")
+        listdata.completed_at = null
       } else {
-        console.log("まだ終わらない")
+        listdata.completed_at = new Date()
       }
 
       // 真
