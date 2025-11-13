@@ -144,16 +144,22 @@ function henko() {
     },
 
     async toggleTask(id) {
-      const idx = this.task.findIndex((e) => {
-        return e.id === id
+      // 演
+      const listdata = this.task.find((obj) => {
+        return obj.id == id
       })
 
-      if (idx >= 0) {
-        // 演
-        // 真
-        const resp = await axios.patch(`https://todoo.5xcamp.us/todos/${id}/toggle`, null, this.setconfig())
-        console.log(resp)
+      if (listdata.completed_at != null) {
+        console.log("終わりました")
+      } else {
+        console.log("まだ終わらない")
       }
+
+      // 真
+      // if (listdata != null) {
+      //   const resp = await axios.patch(`https://todoo.5xcamp.us/todos/${id}/toggle`, null, this.setconfig())
+      //   console.log(resp)
+      // }
     },
 
     setconfig() {
