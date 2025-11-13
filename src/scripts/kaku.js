@@ -139,7 +139,21 @@ function henko() {
         this.task.splice(idx, 1)
 
         // 真
-        const resp = axios.delete(`https://todoo.5xcamp.us/todos/${tid}`, this.setconfig())
+        axios.delete(`https://todoo.5xcamp.us/todos/${tid}`, this.setconfig())
+      }
+    },
+
+    async toggleTask(id) {
+      const idx = this.task.findIndex((e) => {
+        return e.id === id
+      })
+
+      if (idx >= 0) {
+        // 演
+
+        // 真
+        const resp = await axios.patch(`https://todoo.5xcamp.us/todos/${id}/toggle`, null, this.setconfig())
+        console.log(resp)
       }
     },
 

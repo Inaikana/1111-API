@@ -166,7 +166,7 @@
           <li>
             <div class="item-content">
               <label>
-                <input type="checkbox" />
+                <input type="checkbox" @click="toggleTask(t.id)" />
                 <p x-text="t.content" class="content"></p>
               </label>
             </div>
