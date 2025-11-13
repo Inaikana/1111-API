@@ -108,6 +108,13 @@ function henko() {
         await axios.post("https://todoo.5xcamp.us/todos", data, this.setconfig())
       }
 
+      //  換回真資料
+      const truedata = resp.data
+      const idx = this.task.findIndex((t) => {
+        return t.id == fake.id
+      })
+      this.task.splice(idx, 1, truedata)
+
       this.taskname = ""
     },
 
@@ -120,6 +127,10 @@ function henko() {
       }
       const resp = await axios.get("https://todoo.5xcamp.us/todos", config)
       this.task = resp.data.todos
+    },
+
+    deleteTask() {
+      console.log(this.$el.dataset.id)
     },
 
     setconfig() {
@@ -153,9 +164,9 @@ function henko() {
       this.mode = "sagasu"
     },
 
-    // ikouAru() {
-    //   return this.mode == "ikou" //讓它回傳一個布林值 true或false
-    // },
+    ikouAru() {
+      return this.mode == "ikou" //讓它回傳一個布林值 true或false
+    },
 
     tsukuruAru() {
       return this.mode == "tsukuru"
