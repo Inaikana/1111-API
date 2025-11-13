@@ -97,8 +97,15 @@ function henko() {
             content: this.taskname,
           },
         }
+        const fake = {
+          id: crypto.randomUUID(),
+          content: this.taskname,
+        }
+        this.task.unshift(fake)
+        // 假發
+
+        // 真發
         await axios.post("https://todoo.5xcamp.us/todos", data, this.setconfig())
-        this.showlist()
       }
 
       this.taskname = ""
@@ -132,11 +139,13 @@ function henko() {
     },
 
     ikou() {
+      this.reset()
       this.mode = "ikou"
     },
 
     tsukuru() {
       // 作る
+      this.reset()
       this.mode = "tsukuru"
     },
 
@@ -144,9 +153,9 @@ function henko() {
       this.mode = "sagasu"
     },
 
-    ikouAru() {
-      return this.mode == "ikou" //讓它回傳一個布林值 true或false
-    },
+    // ikouAru() {
+    //   return this.mode == "ikou" //讓它回傳一個布林值 true或false
+    // },
 
     tsukuruAru() {
       return this.mode == "tsukuru"
