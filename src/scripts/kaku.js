@@ -1,9 +1,9 @@
 import axios from "axios"
 import { debounce } from "throttle-debounce"
 
-const D = debounce(2000, () => {
-  return console.log("GO")
-})
+// const toggleDebounce = debounce(2000, () => {
+//   return console.log("GO")
+// })
 
 function henko() {
   return {
@@ -148,6 +148,10 @@ function henko() {
       }
     },
 
+    toggleDebounce: debounce(1000, (id) => {
+      return console.log(id)
+    }),
+
     async toggleTask(id) {
       // 演
       const listdata = this.task.find((obj) => {
@@ -160,9 +164,8 @@ function henko() {
         listdata.completed_at = new Date()
       }
 
-      D()
-
       // 真
+      this.toggleDebounce(id)
       // if (listdata != null) {
       //   const resp = await axios.patch(`https://todoo.5xcamp.us/todos/${id}/toggle`, null, this.setconfig())
       //   console.log(resp)
