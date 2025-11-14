@@ -148,8 +148,8 @@ function henko() {
       }
     },
 
-    toggleDebounce: debounce(1000, (id) => {
-      return console.log(id)
+    toggleDebounce: debounce(1000, function (id) {
+      axios.patch(`https://todoo.5xcamp.us/todos/${id}/toggle`, null, this.setconfig())
     }),
 
     async toggleTask(id) {
