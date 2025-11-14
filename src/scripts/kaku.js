@@ -1,4 +1,9 @@
 import axios from "axios"
+import { debounce } from "throttle-debounce"
+
+const D = debounce(2000, () => {
+  return console.log("GO")
+})
 
 function henko() {
   return {
@@ -154,6 +159,8 @@ function henko() {
       } else {
         listdata.completed_at = new Date()
       }
+
+      D()
 
       // 真
       // if (listdata != null) {
