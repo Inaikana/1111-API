@@ -168,7 +168,6 @@ function henko() {
         listdata.count = 0
       }
       listdata.count = listdata.count + 1
-      console.log(listdata.count)
 
       // 真做
       this.toggleDebounce(id)
@@ -220,9 +219,3 @@ function henko() {
 }
 
 export { henko }
-
-// const {email,tinyname,password} = this;
-// =
-// const email = this.email
-// const tinyname = this.tinyname
-// const password = this.password
