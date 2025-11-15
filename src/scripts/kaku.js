@@ -15,6 +15,7 @@ function henko() {
     IDing: false,
     taskname: "",
     task: [],
+    firstState: 1,
 
     init() {
       const token = localStorage.getItem("ID")
@@ -148,9 +149,9 @@ function henko() {
       }
     },
 
-    toggleDebounce: debounce(1000, function (id) {
-      axios.patch(`https://todoo.5xcamp.us/todos/${id}/toggle`, null, this.setconfig())
-    }),
+    // toggleDebounce: debounce(1000, function (id) {
+    //   axios.patch(`https://todoo.5xcamp.us/todos/${id}/toggle`, null, this.setconfig())
+    // }),
 
     async toggleTask(id) {
       // 演
@@ -164,14 +165,47 @@ function henko() {
         listdata.completed_at = new Date()
       }
 
-      if (listdata.count == undefined) {
-        listdata.count = 0
-      }
-      listdata.count = listdata.count + 1
+      // 【以下嘗試用自己的方法】
 
-      // 真做
-      this.toggleDebounce(id)
+      if (listdata.state == undefined) {
+        // 用老師的方法 在listdata建立state
+
+        if (listdata.completed_at != null) {
+          // 有 completed_at = 前面假按給的 = 假按之前是沒有的 = 最初是未完成(未套用CSS)
+
+          listdata.state = -1 // 定義-1為沒套用CSS效果
+          this.firstState = -1 // 記錄初始狀況
+        } else {
+          // 沒有 completed_at = 前面假按reset掉的 = 假按之前是有的 = 最初是已完成(有套用CSS)
+
+          listdata.state = 1 // 定義1為有套用CSS效果
+          this.firstState = 1 // 記錄初始狀況
+        }
+      }
+
+      listdata.state = listdata.state * -1
+      console.log(`按下後的listdata.state = ${listdata.state}`)
+      console.log(`按下後的this.firstState = ${this.firstState}`)
+      console.log("~~~~~~以下進入if~~~~~~~")
+
+      if (listdata.state != this.firstState) {
+        console.log(`if裡的listdata.state = ${listdata.state}`)
+        console.log(`if裡的this.firstState = ${this.firstState}`)
+        this.toggleDebounce()
+        this.F()
+      }
+      console.log("!!!!!!!!!!!!!!一輪分隔線!!!!!!!!!!!!!!")
+
+      // 【以上嘗試用自己的方法】
     },
+
+    F() {
+      console.log("奇數才打API")
+    },
+
+    toggleDebounce: debounce(1000, function () {
+      console.log("Debounce都會打API")
+    }),
 
     setconfig() {
       const token = localStorage.getItem("ID")
