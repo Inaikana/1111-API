@@ -180,6 +180,16 @@ function henko() {
       this.toggleDebounce(id, listdata)
     },
 
+    taskfix(id) {
+      const listdata = this.task.find((obj) => {
+        return obj.id == id
+      })
+
+      if (listdata) {
+        listdata.writing = true
+      }
+    },
+
     setconfig() {
       const token = localStorage.getItem("ID")
       const config = {

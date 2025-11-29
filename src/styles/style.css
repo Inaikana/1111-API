@@ -5,6 +5,10 @@
   @apply w-6 h-6;
 }
 
+.change {
+  border: 1px solid #888888;
+}
+
 header.banner {
   & h1 {
     @apply text-6xl font-thin;
