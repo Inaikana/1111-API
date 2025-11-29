@@ -44,11 +44,12 @@ function henko() {
 
           if (token) {
             localStorage.setItem("ID", token)
+            this.IDing = true
           }
 
           this.reset()
-          this.IDing = true
           this.sagasu()
+          this.showlist()
         } catch (err) {
           console.log(err)
         }
@@ -89,7 +90,7 @@ function henko() {
           localStorage.removeItem("ID")
           this.IDing = false
           this.ikou()
-          // this.task = []
+          this.task = []
         } catch (err) {
           console.log(err)
         }
