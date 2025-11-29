@@ -193,6 +193,14 @@ function henko() {
       }
     },
 
+    update(id) {
+      const listdata = this.task.find((obj) => {
+        return obj.id == id
+      })
+      console.log("打API")
+      listdata.writing = false
+    },
+
     setconfig() {
       const token = localStorage.getItem("ID")
       const config = {
