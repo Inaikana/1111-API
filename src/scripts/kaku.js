@@ -186,7 +186,7 @@ function henko() {
       })
 
       if (listdata) {
-        listdata.writing = true
+        listdata.writing = !listdata.writing
       }
     },
 
