@@ -181,6 +181,9 @@ function henko() {
     },
 
     taskfix(id) {
+      this.task.forEach((t) => {
+        t.writing = false
+      })
       const listdata = this.task.find((obj) => {
         return obj.id == id
       })
