@@ -10,6 +10,14 @@
   padding: 4px;
 }
 
+.fix {
+  font-size: 16px;
+  padding: 10px;
+  margin-left: 12px;
+  border-radius: 8px;
+  background-color: #57ff92;
+}
+
 header.banner {
   & h1 {
     @apply text-6xl font-thin;
