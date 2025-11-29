@@ -89,6 +89,7 @@ function henko() {
           localStorage.removeItem("ID")
           this.IDing = false
           this.ikou()
+          // this.task = []
         } catch (err) {
           console.log(err)
         }
@@ -148,14 +149,12 @@ function henko() {
       }
     },
 
-    toggleDebounce: debounce(1000, function (id, count) {
-      console.log(`這次按了 ${count} 下`)
-
+    toggleDebounce: debounce(1000, function (id, object) {
+      const { count } = object
       if (count % 2 != 0) {
-        console.log("奇數才打API")
-        // 能成功限制奇數次 但差count歸零
+        axios.patch(`https://todoo.5xcamp.us/todos/${id}/toggle`, null, this.setconfig())
       }
-      // axios.patch(`https://todoo.5xcamp.us/todos/${id}/toggle`, null, this.setconfig())
+      object.count = 0
     }),
 
     async toggleTask(id) {
@@ -177,7 +176,7 @@ function henko() {
       }
       listdata.count = listdata.count + 1
 
-      this.toggleDebounce(id, listdata.count)
+      this.toggleDebounce(id, listdata)
     },
 
     setconfig() {
