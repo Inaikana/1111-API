@@ -15,6 +15,7 @@ function henko() {
     IDing: false,
     taskname: "",
     task: [],
+    changeWord: "",
 
     init() {
       const token = localStorage.getItem("ID")
@@ -190,6 +191,7 @@ function henko() {
 
       if (listdata) {
         listdata.writing = !listdata.writing
+        this.changeWord = listdata.content
       }
     },
 
