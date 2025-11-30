@@ -195,17 +195,19 @@ function henko() {
       const listdata = this.task.find((obj) => {
         return obj.id == id
       })
-      // 畫面先呈現
-      listdata.content = this.changeWord
+      if (listdata.content != this.changeWord) {
+        // 畫面先呈現
+        listdata.content = this.changeWord
 
-      // 打API
-      const data = {
-        todo: {
-          content: this.changeWord,
-        },
+        // 打API
+        const data = {
+          todo: {
+            content: this.changeWord,
+          },
+        }
+
+        axios.put(`https://todoo.5xcamp.us/todos/${id}`, data, this.setconfig())
       }
-
-      axios.put(`https://todoo.5xcamp.us/todos/${id}`, data, this.setconfig())
       listdata.writing = false
     },
 
