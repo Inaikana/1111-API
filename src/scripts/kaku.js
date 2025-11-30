@@ -1,10 +1,6 @@
 import axios from "axios"
 import { debounce } from "throttle-debounce"
 
-// const toggleDebounce = debounce(2000, () => {
-//   return console.log("GO")
-// })
-
 function henko() {
   return {
     // 回傳一個物件
@@ -199,7 +195,17 @@ function henko() {
       const listdata = this.task.find((obj) => {
         return obj.id == id
       })
-      console.log("打API")
+      // 畫面先呈現
+      listdata.content = this.changeWord
+
+      // 打API
+      const data = {
+        todo: {
+          content: this.changeWord,
+        },
+      }
+
+      axios.put(`https://todoo.5xcamp.us/todos/${id}`, data, this.setconfig())
       listdata.writing = false
     },
 
